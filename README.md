@@ -138,10 +138,6 @@ mgeneratejs '{"ip_addresses": {"$array": {"of": "$ip", "number": {"$integer": {"
 - [`$polygon`](#polygon): Returns a GeoJSON Polygon.
 - [`$geometries`](#geometries): Returns a GeoJSON GeometryCollection.
 
-### Generated Topical Text
-
-- [`$text`](#text): Returns text generated based on a prompt (requires a [Ollama API](https://github.com/ollama/ollama) endpoint)
-
 #### Native and MongoDB-specific Types
 
 - [`$binary`](#binary): Returns a MongoDB Binary type.
@@ -155,6 +151,10 @@ mgeneratejs '{"ip_addresses": {"$array": {"of": "$ip", "number": {"$integer": {"
 - [`$objectid`](#objectid): Returns MongoDB ObjectID.
 - [`$regex`](#regex): Returns a Regular Expression object.
 - [`$timestamp`](#timestamp): Returns a MongoDB Timestamp.
+
+#### (Experimental) Generative Data
+
+- [`$text`](#text): Returns text generated based on a prompt (requires a [Ollama API](https://github.com/ollama/ollama) endpoint).
 
 ### All Built-in Operators in Alphabetical Order
 
