@@ -1,4 +1,4 @@
-# mgeneratejs [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
+# mgenerativejs [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
 
 _mgeneratejs_ generates structured, semi-random JSON data according to a
 template object. It offers both a command line script and a JavaScript API.
@@ -137,6 +137,10 @@ mgeneratejs '{"ip_addresses": {"$array": {"of": "$ip", "number": {"$integer": {"
 - [`$linestring`](#linestring): Returns a GeoJSON LineString.
 - [`$polygon`](#polygon): Returns a GeoJSON Polygon.
 - [`$geometries`](#geometries): Returns a GeoJSON GeometryCollection.
+
+### Generated Topical Text
+
+- [`$text`](#text): Returns text generated based on a prompt (requires a [Ollama API](https://github.com/ollama/ollama) endpoint)
 
 #### Native and MongoDB-specific Types
 
@@ -588,6 +592,24 @@ _Options_
 > ```
 >
 > Returns `{"expr":{"$regex":"^ab+c$","$options":"i"}}`.
+
+### `$text`
+
+**Experimental Feature** | Returns text generated based on the provided `prompt`. This operator has a dependency on an accessible Ollama endpoint. The endpoint and the model to generate the text should be configured in the environment variables `MGENERATIVEJS_OLLAMA_ENDPOINT` and `MGENERATIVE_OLLAMA_MODEL`. Check [Ollama documentation](https://github.com/ollama/ollama?tab=readme-ov-file#start-ollama) for instructions.
+
+_Options_
+
+- `prompt` (required) Topical prompt to generate text (example: Designation or job title found in Tech).
+- `minWordCount` (optional) Minimum word count for the model to generate text. This constrain will be included in the prompt and relies on the model to respect this constrain.
+- `maxWordCount` (optional) Maximum word count for the model to generate text. This limit will be included in the prompt and relies on the model to respect this limit.
+
+> **Example**
+>
+> ```
+> {"jobTitle": {"$text": {"prompt": "Designation or job title found in Tech"}}}
+> ```
+>
+> Returns `{"jobTitle": "DevOps Engineer"}`.
 
 ### `$timestamp`
 
