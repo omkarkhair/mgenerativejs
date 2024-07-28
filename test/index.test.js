@@ -4,7 +4,7 @@ var assert = require('assert');
 // var debug = require('debug')('mgenerate:test');
 
 context('General', function() {
-  it('should throw an error if additional key is present after operator', function() {
+  it('should throw an error if additional key is present after operator', async function() {
     assert.throws(async function() {
       var template = {
         foo: { $string: { length: 3 }, something: 'else' }
