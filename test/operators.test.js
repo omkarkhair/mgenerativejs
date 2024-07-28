@@ -400,12 +400,12 @@ context('Operators', function() {
       var res = await mgenerate({ foo: '$string' });
       assert.equal(typeof res.foo, 'string');
     });
-    it('should work for object format operator', function() {
-      var res = mgenerate({ foo: { $string: { length: 3 } } });
+    it('should work for object format operator', async function() {
+      var res = await mgenerate({ foo: { $string: { length: 3 } } });
       assert.equal(typeof res.foo, 'string');
     });
-    it('should support length and pool parameters', function() {
-      var res = mgenerate({ foo: { $string: { length: 1, pool: 'a' } } });
+    it('should support length and pool parameters', async function() {
+      var res = await mgenerate({ foo: { $string: { length: 1, pool: 'a' } } });
       assert.equal(res.foo, 'a');
     });
   });
