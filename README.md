@@ -1,4 +1,4 @@
-# mgenerativejs [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
+# mgeneratejs [![travis][travis_img]][travis_url] [![npm][npm_img]][npm_url]
 
 _mgeneratejs_ generates structured, semi-random JSON data according to a
 template object. It offers both a command line script and a JavaScript API.
